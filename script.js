@@ -99,6 +99,32 @@
     // Optionally preload poster only, video will be loaded when entering
   });
 
+
+  // Создаём viewer внутри div с id="pano"
+var viewer = new Marzipano.Viewer(document.getElementById('pano'));
+
+// Источник изображений (путь до твоей папки tiles)
+var source = Marzipano.ImageUrlSource.fromString("tiles/{z}/{f}/{y}/{x}.jpg");
+
+// Геометрия куба
+var geometry = new Marzipano.CubeGeometry([{ tileSize: 512, size: 512 }]);
+
+// Ограничения на угол обзора
+var limiter = Marzipano.RectilinearView.limit.traditional(1024, 100 * Math.PI / 180);
+
+// Вид камеры
+var view = new Marzipano.RectilinearView({ yaw: 0, pitch: 0, fov: Math.PI / 2 }, limiter);
+
+// Создаём сцену
+var scene = viewer.createScene({
+  source: source,
+  geometry: geometry,
+  view: view
+});
+
+// Показываем сцену
+scene.switchTo();
+
   // Optional: keyboard navigation (space = toggle current visible video play/pause)
   window.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {

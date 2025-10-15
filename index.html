@@ -8,15 +8,15 @@
   <!-- GSAP + ScrollTrigger -->
   <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+  <script src="https://www.marzipano.net/demos/sample-tour/marzipano.js"></script>
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ---------- COVER / PANORAMA (первый экран) ---------- -->
+ <!-- ---------- PANORAMA COVER (первый экран) ---------- -->
   <header id="cover">
-    <!-- Замени poster.jpg на свою обложку/панораму -->
-    <img src="poster.jpg" alt="Museum cover" id="cover-img" />
+    <div id="pano"></div>
     <div id="cover-inner">
       <h1>3D Video Baiqonyr</h1>
       <p class="sub">Қаланы аралау үшін, төмен өтіңіз</p>
@@ -50,238 +50,238 @@
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 1</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-      <section class="video-block" data-title="Зал 2">
+      <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6412.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-         <section class="video-block" data-title="Зал 2">
+         <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6413.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-          <section class="video-block" data-title="Зал 2">
+          <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6414.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-          <section class="video-block" data-title="Зал 2">
+          <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6415.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-  <section class="video-block" data-title="Зал 2">
+  <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6416.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-       <section class="video-block" data-title="Зал 2">
+       <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6417.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-  <section class="video-block" data-title="Зал 2">
+  <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6430.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-       <section class="video-block" data-title="Зал 2">
+       <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6431.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-       <section class="video-block" data-title="Зал 2">
+       <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6432.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-       <section class="video-block" data-title="Зал 2">
+       <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6432.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-       <section class="video-block" data-title="Зал 2">
+       <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6433.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
- <section class="video-block" data-title="Зал 2">
+ <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6434.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-       <section class="video-block" data-title="Зал 2">
+       <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6435.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-        <section class="video-block" data-title="Зал 2">
+        <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6437.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-        <section class="video-block" data-title="Зал 2">
+        <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6438.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
 
-  <section class="video-block" data-title="Зал 2">
+  <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6450.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-       <section class="video-block" data-title="Зал 2">
+       <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6451.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-        <section class="video-block" data-title="Зал 2">
+        <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6452.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-       <section class="video-block" data-title="Зал 2">
+       <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6453.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-        <section class="video-block" data-title="Зал 2">
+        <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6454.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-  <section class="video-block" data-title="Зал 2">
+  <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6456.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-        <section class="video-block" data-title="Зал 2">
+        <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6457.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
-       <section class="video-block" data-title="Зал 2">
+       <section class="video-block" data-title="">
         <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
           <source data-src="videos/IMG_6458.mp4" type="video/mp4" />
         </video>
         <div class="video-ui">
           <button class="sound-toggle" aria-label="Дауыс қосу">🔊</button>
-          <div class="caption">Зал 2</div>
+          <div class="caption"></div>
         </div>
       </section>
 
