@@ -100,30 +100,33 @@
   });
 
 
-  // Создаём viewer внутри div с id="pano"
+ // Создаём viewer
 var viewer = new Marzipano.Viewer(document.getElementById('pano'));
 
-// Источник изображений (путь до твоей папки tiles)
-var source = Marzipano.ImageUrlSource.fromString("tiles/{z}/{f}/{y}/{x}.jpg");
-
-// Геометрия куба
-var geometry = new Marzipano.CubeGeometry([{ tileSize: 512, size: 512 }]);
-
-// Ограничения на угол обзора
-var limiter = Marzipano.RectilinearView.limit.traditional(1024, 100 * Math.PI / 180);
-
-// Вид камеры
-var view = new Marzipano.RectilinearView({ yaw: 0, pitch: 0, fov: Math.PI / 2 }, limiter);
-
-// Создаём сцену
-var scene = viewer.createScene({
-  source: source,
-  geometry: geometry,
-  view: view
+// Для каждой сцены из data.js создаём объект
+var scenes = data.scenes.map(function(sceneData) {
+  var urlPrefix = "tiles";
+  var source = Marzipano.ImageUrlSource.fromString(
+    urlPrefix + "/" + sceneData.id + "/{z}/{f}/{y}/{x}.jpg",
+    { cubeMapPreviewUrl: urlPrefix + "/" + sceneData.id + "/preview.jpg" }
+  );
+  var geometry = new Marzipano.CubeGeometry(sceneData.levels);
+  var limiter = Marzipano.RectilinearView.limit.traditional(
+    sceneData.faceSize, 120 * Math.PI / 180
+  );
+  var view = new Marzipano.RectilinearView(
+    sceneData.initialViewParameters, limiter
+  );
+  var scene = viewer.createScene({
+    source: source,
+    geometry: geometry,
+    view: view
+  });
+  return scene;
 });
 
-// Показываем сцену
-scene.switchTo();
+// Показываем первую сцену
+scenes[0].switchTo();
 
   // Optional: keyboard navigation (space = toggle current visible video play/pause)
   window.addEventListener('keydown', (e) => {
