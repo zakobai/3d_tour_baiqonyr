@@ -1,79 +1,80 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="ru">
 <head>
-<title>Project Title</title>
-<meta charset="utf-8">
-<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
-<style> @-ms-viewport { width: device-width; } </style>
-<link rel="stylesheet" href="vendor/reset.min.css">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>3D Video Museum</title>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="single-scene ">
+<body>
 
-<div id="pano"></div>
+  <!-- ---------- COVER / PANORAMA (первый экран) ---------- -->
+  <header id="cover">
+    <!-- Замени poster.jpg на свою обложку/панораму -->
+    <img src="poster.jpg" alt="Museum cover" id="cover-img" />
+    <div id="cover-inner">
+      <h1>3D Video Museum</h1>
+      <p class="sub">Листай вниз, чтобы попасть в зал</p>
+    </div>
+  </header>
 
-<!-- Видео секция (вторая часть сайта) -->
-<section id="video-section">
-  <video id="museum-video" autoplay muted loop playsinline>
-    <source src="videos/IMG_6407.MP4" type="video/mp4">
-    Ваш браузер не поддерживает видео.
-  </video>
-</section>
+  <!-- ---------- VIDEO SCROLL (каждый .video-block — 100vh) ---------- -->
+  <main id="main">
+    <section id="videos-list">
+      <!-- Пример: 20 видео — просто продублируй / отредактируй список -->
+      <!-- Важно: заменяй имена файлов на свои и соблюдай регистр -->
+      <!-- Используем data-src на <source> — реальная загрузка произойдёт при появлении -->
+      
+      <!-- Шаблон видео-блока: -->
+      <!--
+      <section class="video-block" data-title="Зал 1">
+        <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster1.jpg">
+          <source data-src="videos/video1.mp4" type="video/mp4" />
+        </video>
+        <div class="video-ui">
+          <button class="sound-toggle" aria-label="Включить звук">🔊</button>
+          <div class="caption">Зал 1 — Описание (опционально)</div>
+        </div>
+      </section>
+      -->
 
-<div id="sceneList">
-  <ul class="scenes">
-    
-      <a href="javascript:void(0)" class="scene" data-id="0-img_6459-2">
-        <li class="text">IMG_6459-2</li>
-      </a>
-    
-  </ul>
-</div>
+      <!-- Ниже — примеры. Замени video1.mp4 ... video20.mp4 на свои файлы -->
+      <section class="video-block" data-title="Зал 1">
+        <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster1.jpg">
+          <source data-src="videos/video1.mp4" type="video/mp4" />
+        </video>
+        <div class="video-ui">
+          <button class="sound-toggle" aria-label="Включить звук">🔊</button>
+          <div class="caption">Зал 1</div>
+        </div>
+      </section>
 
-<div id="titleBar">
-  <h1 class="sceneName"></h1>
-</div>
+      <section class="video-block" data-title="Зал 2">
+        <video class="stage-video" playsinline muted preload="metadata" poster="videos/poster2.jpg">
+          <source data-src="videos/video2.mp4" type="video/mp4" />
+        </video>
+        <div class="video-ui">
+          <button class="sound-toggle" aria-label="Включить звук">🔊</button>
+          <div class="caption">Зал 2</div>
+        </div>
+      </section>
 
-<a href="javascript:void(0)" id="autorotateToggle">
-  <img class="icon off" src="img/play.png">
-  <img class="icon on" src="img/pause.png">
-</a>
+      <!-- Скопируй и поменяй пути до видео, чтобы добавить все 20 -->
+      <!-- ... -->
 
-<a href="javascript:void(0)" id="fullscreenToggle">
-  <img class="icon off" src="img/fullscreen.png">
-  <img class="icon on" src="img/windowed.png">
-</a>
+    </section>
+  </main>
 
-<a href="javascript:void(0)" id="sceneListToggle">
-  <img class="icon off" src="img/expand.png">
-  <img class="icon on" src="img/collapse.png">
-</a>
+  <!-- Небольшой футер -->
+  <footer id="end">
+    <div>Спасибо за просмотр — Конец тура</div>
+  </footer>
 
-<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
-  <img class="icon" src="img/up.png">
-</a>
-<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
-  <img class="icon" src="img/down.png">
-</a>
-<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
-  <img class="icon" src="img/left.png">
-</a>
-<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
-  <img class="icon" src="img/right.png">
-</a>
-<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
-  <img class="icon" src="img/plus.png">
-</a>
-<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
-  <img class="icon" src="img/minus.png">
-</a>
-
-<script src="vendor/screenfull.min.js" ></script>
-<script src="vendor/bowser.min.js" ></script>
-<script src="vendor/marzipano.js" ></script>
-
-<script src="data.js"></script>
-<script src="index.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
