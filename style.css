@@ -1,86 +1,110 @@
-/* Общие настройки */
-html, body {
-  height: 100%;
-  margin: 0;
-  overflow-x: hidden;
-  font-family: sans-serif;
-}
+/* Базовые */
+* { box-sizing: border-box; }
+html,body { height: 100%; margin: 0; font-family: Inter, "Helvetica Neue", Arial, sans-serif; background: #000; color: #fff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+a { color: inherit; text-decoration: none; }
 
-/* ---------- COVER ---------- */
+/* COVER (первый экран) */
 #cover {
-  height: 100vh;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100vh;
+  width: 100%;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-#cover img {
+#cover-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  filter: saturate(0.95) contrast(0.95) brightness(0.55);
 }
 
 #cover-inner {
-  position: absolute;
-  bottom: 50px; /* отступ от низа экрана */
-  width: 100%;
+  z-index: 2;
   text-align: center;
-  color: white;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+  backdrop-filter: blur(2px);
 }
+#cover h1 { font-size: clamp(28px, 5vw, 56px); margin: 0 0 8px; letter-spacing: -0.02em; }
+#cover .sub { opacity: 0.9; }
 
-/* ---------- VIDEO BLOCKS ---------- */
-#videos-list {
-  scroll-snap-type: y mandatory; /* прилипание к видео */
-}
+/* MAIN / VIDEO LIST */
+#main { background: #000; }
+#videos-list { width: 100%; margin: 0; padding: 0; }
 
+/* каждый блок — экран */
 .video-block {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
-  scroll-snap-align: start;
-  background: black;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: #000;
 }
 
+/* video элемент занимает всё */
 .stage-video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform-origin: center center;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  opacity: 0;         /* появится через JS/ScrollTrigger */
+  transform: scale(1.03) translateY(20px);
 }
 
+/* UI поверх видео */
 .video-ui {
   position: absolute;
-  bottom: 20px;
+  z-index: 6;
   left: 20px;
-  color: white;
-}
-
-.sound-toggle {
-  background: rgba(0,0,0,0.5);
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 5px 10px;
-  margin-bottom: 5px;
+  bottom: 20px;
+  display:flex;
+  gap:12px;
+  align-items: center;
+  color: #fff;
 }
 
 .caption {
+  background: rgba(0,0,0,0.35);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  backdrop-filter: blur(4px);
+}
+
+.sound-toggle {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
   font-size: 16px;
 }
 
-/* ---------- FOOTER ---------- */
+/* маленькая подсказка "tap to enable sound" */
+.sound-toggle[data-sound="on"] { background: #fff; color: #000; border-color: rgba(0,0,0,0.08); }
+
+/* Футер */
 #end {
-  padding: 40px;
-  text-align: center;
-  background: #111;
-  color: white;
+  height: 50vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#070707;
+  color:#bbb;
+  font-size:18px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 800px) {
+  .video-ui { left: 12px; bottom: 12px; gap:8px; }
+  .caption { font-size: 13px; padding: 6px 10px; }
+  #cover h1 { font-size: 28px; }
 }
