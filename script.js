@@ -2,6 +2,7 @@
 // Требует GSAP + ScrollTrigger (подключены в index.html)
 
 (function(){
+  var data = window.APP_DATA;
   // регистрируем ScrollTrigger
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
