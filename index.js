@@ -55,6 +55,15 @@
     document.body.classList.add('touch');
   });
 
+  window.addEventListener('scroll', () => {
+  const videoSection = document.getElementById('video-section');
+  const rect = videoSection.getBoundingClientRect();
+
+  if (rect.top < window.innerHeight * 0.8) {
+    videoSection.classList.add('visible');
+  }
+}); 
+
   // Use tooltip fallback mode on IE < 11.
   if (bowser.msie && parseFloat(bowser.version) < 11) {
     document.body.classList.add('tooltip-fallback');
