@@ -2,7 +2,6 @@
 // Требует GSAP + ScrollTrigger (подключены в index.html)
 
 (function(){
-  var data = window.APP_DATA;
   // регистрируем ScrollTrigger
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
@@ -99,32 +98,6 @@
 
     // Optionally preload poster only, video will be loaded when entering
   });
-
-
- // Создаём viewer
-var viewer = new Marzipano.Viewer(document.getElementById('pano'));
-
-// Для каждой сцены из data.js создаём объект
-var scenes = data.scenes.map(function(sceneData) {
-  var urlPrefix = "tiles";
-  var source = Marzipano.ImageUrlSource.fromString(
-    urlPrefix + "/" + sceneData.id + "/{z}/{f}/{y}/{x}.jpg",
-    { cubeMapPreviewUrl: urlPrefix + "/" + sceneData.id + "/preview.jpg" }
-  );
-  var geometry = new Marzipano.CubeGeometry(sceneData.levels);
-  var limiter = Marzipano.RectilinearView.limit.traditional(
-    sceneData.faceSize, 120 * Math.PI / 180
-  );
-  var view = new Marzipano.RectilinearView(
-    sceneData.initialViewParameters, limiter
-  );
-  var scene = viewer.createScene({
-    source: source,
-    geometry: geometry,
-    view: view
-  });
-  return scene;
-});
 
 // Показываем первую сцену
 scenes[0].switchTo();
