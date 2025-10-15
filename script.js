@@ -99,9 +99,6 @@
     // Optionally preload poster only, video will be loaded when entering
   });
 
-// Показываем первую сцену
-scenes[0].switchTo();
-
   // Optional: keyboard navigation (space = toggle current visible video play/pause)
   window.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
