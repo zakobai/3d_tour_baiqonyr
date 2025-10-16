@@ -115,4 +115,35 @@
       }
     }
   });
+
+// ====== Автоскролл при окончании видео ======
+const videoBlocks = document.querySelectorAll('.video-block');
+
+videoBlocks.forEach((block, idx) => {
+  const video = block.querySelector('.stage-video');
+  if (!video) return;
+
+  video.addEventListener('ended', () => {
+    // следующий блок
+    const nextBlock = videoBlocks[idx + 1];
+    if (nextBlock) {
+      nextBlock.scrollIntoView({ behavior: 'smooth' });
+      // чтобы сразу запустилось видео в следующем блоке
+      const nextVideo = nextBlock.querySelector('.stage-video');
+      if (nextVideo) {
+        // lazy load если нужно
+        const source = nextVideo.querySelector('source[data-src]');
+        if (source && !source.src) {
+          source.src = source.getAttribute('data-src');
+          nextVideo.load();
+        }
+        nextVideo.style.opacity = '1';
+        nextVideo.style.transform = 'scale(1) translateY(0)';
+        nextVideo.muted = true;
+        nextVideo.play().catch(() => {});
+      }
+    }
+  });
+});
+
 })();
