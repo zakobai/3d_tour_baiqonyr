@@ -12,19 +12,13 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-}
-#cover-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(0.95) contrast(0.95) brightness(0.55);
+  background: url('videos/IMG_6459.jpg') center/cover no-repeat;
 }
 #cover-inner {
   z-index: 2;
   text-align: center;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);ё
+  margin-bottom: 40px; /* отступ от низа */
 }
 #cover h1 { font-size: clamp(28px, 5vw, 56px); margin: 0 0 8px; letter-spacing: -0.02em; }
 #cover .sub { opacity: 0.9; }
