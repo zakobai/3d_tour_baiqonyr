@@ -293,6 +293,45 @@
     <div>Назарларыңызға Рахмет!!!</div>
   </footer>
 
+<audio id="bgMusic" src="baikonur.mp3" loop></audio>
+
+<button id="musicToggle">🔊 Музыка</button>
+
+<style>
+#musicToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 22px;
+  cursor: pointer;
+}
+</style>
+
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicToggle");
+
+btn.onclick = () => {
+  if (music.paused) {
+    music.volume = 0.25;
+    music.play();
+    btn.textContent = "🔇";
+  } else {
+    music.pause();
+    btn.textContent = "🔊";
+  }
+};
+</script>
+
   <script src="script.js"></script>
 </body>
+
+
 </html>
